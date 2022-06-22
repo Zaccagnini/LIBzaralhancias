@@ -1,0 +1,1 @@
+Uma lib que gera gírias de nicho de comunidade de League of Legends.
