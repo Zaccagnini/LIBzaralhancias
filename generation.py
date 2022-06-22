@@ -5,7 +5,7 @@ import dicionario
 
 
 
-def Treat_Word(string):
+def treat_word(string):
     word = string
     vocals = ('a','e','i','o','u')
     if word[-1] in vocals:
@@ -24,7 +24,7 @@ def Treat_Word(string):
 
 
 
-def Create_Phrase():
+def create_phrase():
     template = random.choice(material.templates)
     result = ''
 
@@ -33,7 +33,7 @@ def Create_Phrase():
             result += random.choice(material.words['SUBJECT'])
 
         elif word == 'ACTION' or word == 'ANY':
-            result += Treat_Word(random.choice(dicionario.words))
+            result += treat_word(random.choice(dicionario.words))
 
         else:
             result += word
@@ -41,3 +41,16 @@ def Create_Phrase():
 
         result += ' '
     return result
+
+
+def add_custom_word(word):
+    if word not in dicionario.words:
+        dic = open('dicionario.py', 'w')
+        dicvar = dicionario.words
+
+        dicvar.append(word)
+        dic.write(f'words = {dicvar}')
+        dic.close()
+    
+    else:
+        print('Essa palavra já existe no dicionário!')
